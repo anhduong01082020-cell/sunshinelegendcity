@@ -52,7 +52,7 @@ p{margin-bottom:14px}
 .section-dark .section-title p{color:rgba(255,255,255,.75)}
 
 /* BUTTONS */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 30px;border-radius:50px;font-weight:600;font-size:.95rem;text-transform:uppercase;letter-spacing:.5px;cursor:pointer;border:none;transition:all .3s ease;white-space:nowrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 30px;border-radius:50px;font-weight:600;font-size:.95rem;text-transform:uppercase;letter-spacing:.5px;cursor:pointer;border:none;transition:all .3s ease;white-space:normal;text-align:center;line-height:1.3}
 .btn-gold{background:linear-gradient(135deg,var(--gold) 0%,var(--gold-light) 100%);color:#fff;box-shadow:0 8px 25px rgba(201,160,46,.4)}
 .btn-gold:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(201,160,46,.55)}
 .btn-outline{background:transparent;color:#fff;border:2px solid #fff}
@@ -322,6 +322,103 @@ p{margin-bottom:14px}
 .lightbox.open{display:flex}
 .lightbox img{max-width:100%;max-height:100%;object-fit:contain;border-radius:6px}
 .lightbox-close{position:absolute;top:20px;right:24px;color:#fff;font-size:2.5rem;cursor:pointer;font-weight:300;line-height:1}
+
+/* ===== HAMBURGER + MOBILE NAV ===== */
+.nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;width:42px;height:42px;background:transparent;border:none;cursor:pointer;padding:0;flex-shrink:0}
+.nav-toggle span{display:block;width:24px;height:2.5px;background:var(--navy);border-radius:2px;transition:all .3s ease;margin:0 auto}
+.nav-toggle.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.nav-toggle.open span:nth-child(2){opacity:0}
+.nav-toggle.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+.nav-hotline-mobile{display:none}
+.nav-backdrop{position:fixed;inset:0;background:rgba(11,31,58,.5);z-index:110;opacity:0;visibility:hidden;transition:opacity .35s}
+.nav-backdrop.open{opacity:1;visibility:visible}
+
+/* ===== MOBILE OPTIMISATION ===== */
+@media (max-width:1000px){
+  .nav-toggle{display:flex}
+  .hotline-mini{display:none}
+  .nav{position:fixed;top:0;right:-100%;width:min(82vw,340px);height:100vh;height:100dvh;background:#fff;flex-direction:column;gap:0;padding:88px 0 40px;box-shadow:-10px 0 40px rgba(0,0,0,.2);transition:right .35s ease;z-index:120;overflow-y:auto;display:flex}
+  .nav.open{right:0}
+  .nav a{padding:15px 28px;border-bottom:1px solid #f0f0f0;font-size:1rem;width:100%}
+  .nav a:active{background:var(--cream)}
+  .nav-hotline-mobile{display:block;color:var(--gold-dark);font-weight:700;margin-top:12px;border-bottom:none}
+  body.nav-locked{overflow:hidden}
+}
+
+@media (max-width:768px){
+  .container,.container-wide{padding:0 18px}
+  .section{padding:54px 0}
+  .section-tight{padding:42px 0}
+  h1{font-size:clamp(1.9rem,7.4vw,2.6rem)}
+  h2{font-size:clamp(1.5rem,5.6vw,2rem)}
+  h3{font-size:clamp(1.15rem,4.6vw,1.4rem)}
+  .section-title{margin-bottom:34px}
+  .section-title p{font-size:.96rem}
+  .eyebrow{letter-spacing:2px;font-size:.72rem}
+  .topbar{font-size:.76rem;padding:7px 0}
+  .topbar-inner{gap:5px;flex-direction:column}
+  .header-inner{padding:12px 0}
+  .logo-mark{width:40px;height:40px;font-size:1.15rem}
+  .logo-text{font-size:1rem}
+  .header-cta{gap:10px}
+  .header-cta-btn{padding:9px 16px;font-size:.78rem}
+  .hero-content{padding:40px 0}
+  .hero-sub{font-size:1rem;margin-bottom:28px}
+  .hero-cta{gap:10px;margin-bottom:34px}
+  .hero-cta .btn{width:100%}
+  .hero-stats{gap:14px}
+  .hero-stat{padding-left:12px}
+  .hero-stat-num{font-size:1.5rem}
+  .btn{font-size:.86rem;padding:13px 20px}
+  .trust-strip-inner{gap:20px}
+  .trust-item .num{font-size:1.3rem}
+  .overview-grid,.location-grid{gap:32px}
+  .compare-card{padding:28px 22px}
+  .distance-item{gap:12px;padding:14px}
+  .distance-num{font-size:1.3rem;min-width:62px}
+  .amenity-card{padding:24px 20px}
+  .policy-hero{padding:32px 20px}
+  .policy-hero h3{font-size:1.22rem}
+  .policy-item{padding:20px}
+  .roi-table-row{grid-template-columns:1fr;gap:2px;padding:12px 16px}
+  .roi-table-row .val{text-align:left}
+  .roi-point{gap:14px}
+  .developer-logo{font-size:1.6rem;padding:36px 20px}
+  .timeline{gap:14px}
+  .faq-q{padding:18px 20px;font-size:.96rem}
+  .faq-item.open .faq-a{padding:0 20px 20px}
+  .form-section{padding:56px 0}
+  .form-card{padding:26px 20px}
+  .form-wrap{gap:34px}
+  .final-cta{padding:48px 0}
+  .final-cta p{font-size:1rem}
+  .final-cta .hotline-big{font-size:clamp(1.6rem,8.5vw,2.3rem);gap:10px;flex-wrap:wrap;justify-content:center}
+  .final-cta .hotline-big svg{width:32px;height:32px}
+  .final-cta-btns{gap:10px}
+  .final-cta-btns .btn{width:100%}
+  .footer{padding:44px 0 24px}
+  .gallery-item .label{font-size:.82rem;padding:10px}
+  .masterplan-hero .caption{left:14px;right:14px;bottom:14px;font-size:.82rem;padding:11px 14px}
+  .float-btn{width:50px;height:50px}
+  .float-btn svg{width:23px;height:23px}
+  .float-actions{right:14px;bottom:14px}
+}
+
+@media (max-width:420px){
+  .container,.container-wide{padding:0 14px}
+  h1{font-size:1.72rem}
+  h2{font-size:1.4rem}
+  .hero-stats{grid-template-columns:1fr 1fr;gap:12px}
+  .hero-stat-num{font-size:1.3rem}
+  .hero-stat-label{font-size:.76rem}
+  .product-banner{font-size:1.15rem;height:auto;padding:22px 18px}
+  .developer-stats{grid-template-columns:1fr}
+  .policy-hero h3{font-size:1.08rem}
+  .final-cta .hotline-big{font-size:1.5rem}
+  .trust-item .num{font-size:1.18rem}
+  .logo-text{font-size:.92rem}
+  .logo-text span{font-size:.62rem}
+}
 </style>
 </head>
 <body>
@@ -344,7 +441,7 @@ p{margin-bottom:14px}
         <span>Văn Giang · Hưng Yên</span>
       </div>
     </a>
-    <nav class="nav">
+    <nav class="nav" id="navMenu">
       <a href="#overview">Tổng quan</a>
       <a href="#masterplan">Quy hoạch</a>
       <a href="#location">Vị trí</a>
@@ -353,13 +450,17 @@ p{margin-bottom:14px}
       <a href="#policy">Chính sách</a>
       <a href="#roi">Đầu tư</a>
       <a href="#contact">Tư vấn</a>
+      <a href="tel:0915299163" class="nav-hotline-mobile">📞 Hotline: 0915.299.163</a>
     </nav>
     <div class="header-cta">
       <a href="tel:0915299163" class="hotline-mini">
         <svg viewBox="0 0 24 24"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57-.35-.11-.74-.03-1.02.24l-2.2 2.2c-2.83-1.44-5.15-3.75-6.59-6.59l2.2-2.2c.27-.27.35-.66.24-1.02C8.7 6.45 8.5 5.25 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"/></svg>
         <span>0915.299.163</span>
       </a>
-      <a href="#contact" class="btn btn-gold" style="padding:10px 22px;font-size:.85rem">Nhận tư vấn</a>
+      <a href="#contact" class="btn btn-gold header-cta-btn">Nhận tư vấn</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Mở menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </div>
 </header>
@@ -1411,6 +1512,32 @@ p{margin-bottom:14px}
 </div>
 
 <script>
+/* Mobile hamburger menu */
+(function(){
+  const toggle = document.getElementById('navToggle');
+  const nav = document.getElementById('navMenu');
+  if (!toggle || !nav) return;
+  const backdrop = document.createElement('div');
+  backdrop.className = 'nav-backdrop';
+  document.body.appendChild(backdrop);
+  function openMenu(){
+    nav.classList.add('open'); toggle.classList.add('open');
+    backdrop.classList.add('open'); document.body.classList.add('nav-locked');
+    toggle.setAttribute('aria-expanded','true');
+  }
+  function closeMenu(){
+    nav.classList.remove('open'); toggle.classList.remove('open');
+    backdrop.classList.remove('open'); document.body.classList.remove('nav-locked');
+    toggle.setAttribute('aria-expanded','false');
+  }
+  toggle.addEventListener('click', () => {
+    nav.classList.contains('open') ? closeMenu() : openMenu();
+  });
+  backdrop.addEventListener('click', closeMenu);
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+  window.addEventListener('resize', () => { if (window.innerWidth > 1000) closeMenu(); });
+})();
+
 /* FAQ */
 document.querySelectorAll('.faq-item').forEach(item => {
   item.querySelector('.faq-q').addEventListener('click', () => item.classList.toggle('open'));
